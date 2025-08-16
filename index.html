@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎉 Happy Birthday 🎂</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e2246d, #bf5fe9);
+      font-family: "Poppins", Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Center Card */
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 25px 30px;
+      border-radius: 20px;
+      text-align: center;
+      color: #4b0f5a;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.25);
+      max-width: 420px;
+      width: 85%;
+      z-index: 2;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .card h1 {
+      font-size: 2em;
+      margin: 0.3em 0;
+      color: #31077e;
+      animation: popIn 1.5s ease-in-out;
+    }
+    .card p {
+      font-size: 1.1em;
+      margin: 0.5em 0;
+      animation: slideUp 2s ease-in-out;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 50px;
+      height: 70px;
+      border-radius: 50%;
+      background: red;
+      animation: floatUp 12s linear infinite;
+      z-index: 1;
+      opacity: 0.8;
+    }
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      top: -10px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+      border-radius: 2px;
+    }
+    @keyframes fall {
+      from { transform: translateY(0) rotate(0deg); }
+      to { transform: translateY(110vh) rotate(360deg); }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive font */
+    @media (max-width: 600px) {
+      .card h1 { font-size: 1.6em; }
+      .card p { font-size: 1em; }
+      .card { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Center Box -->
+  <div class="card">
+    <h1>🎂 Happy Birthday 🎉</h1>
+    <p>Wishing you love, laughter, and joy today & always!</p>
+  </div>
+
+  <!-- Balloons Floating -->
+  <div class="balloon" style="left:10%; background:#ff4d6d; animation-delay:0s; animation-duration:10s;"></div>
+  <div class="balloon" style="left:25%; background:#f7b731; animation-delay:2s; animation-duration:14s;"></div>
+  <div class="balloon" style="left:50%; background:#45aaf2; animation-delay:4s; animation-duration:12s;"></div>
+  <div class="balloon" style="left:70%; background:#20bf6b; animation-delay:1s; animation-duration:15s;"></div>
+  <div class="balloon" style="left:85%; background:#a55eea; animation-delay:3s; animation-duration:11s;"></div>
+
+  <!-- Confetti (JS will duplicate for effect) -->
+  <script>
+    for (let i = 0; i < 40; i++) {
+      let conf = document.createElement("div");
+      conf.className = "confetti";
+      conf.style.left = Math.random() * 100 + "vw";
+      conf.style.backgroundColor = ["#ff4d6d","#f7b731","#45aaf2","#20bf6b","#a55eea","#ff9f43"][Math.floor(Math.random()*6)];
+      conf.style.animationDuration = (3 + Math.random() * 3) + "s";
+      conf.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(conf);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
